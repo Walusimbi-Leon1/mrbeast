@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MrBeast: The Unauthorized Biography — SGSS Books</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Merriweather:wght@300;400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a1a2e;
+            --accent: #e94560;
+            --accent2: #0f3460;
+            --gold: #f5a623;
+            --bg: #0f0f1a;
+            --text: #e0e0e0;
+            --text-light: #a0a0b0;
+            --card-bg: #16213e;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            background: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 50%, #16213e 100%);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 30% 50%, rgba(233, 69, 96, 0.08) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 50%, rgba(15, 52, 96, 0.12) 0%, transparent 50%);
+            animation: heroFloat 20s ease-in-out infinite;
+        }
+
+        @keyframes heroFloat {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(-2%, 2%); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 0.4rem 1.2rem;
+            background: rgba(233, 69, 96, 0.15);
+            border: 1px solid rgba(233, 69, 96, 0.3);
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 8vw, 5.5rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #ffffff 0%, #f5a623 50%, #e94560 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero .subtitle {
+            font-family: 'Merriweather', serif;
+            font-size: clamp(1rem, 3vw, 1.5rem);
+            color: var(--text-light);
+            font-weight: 300;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .hero .tagline {
+            font-size: 1rem;
+            color: var(--text-light);
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, var(--accent), #c23152);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 25px rgba(233, 69, 96, 0.3);
+        }
+
+        .hero-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 35px rgba(233, 69, 96, 0.4);
+        }
+
+        .hero-cta svg {
+            width: 20px;
+            height: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .hero-cta:hover svg {
+            transform: translateX(4px);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+
+        .scroll-indicator svg {
+            width: 30px;
+            height: 30px;
+            stroke: var(--text-light);
+        }
+
+        /* About Section */
+        .about {
+            padding: 6rem 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+
+        .about-text h2 span {
+            color: var(--accent);
+        }
+
+        .about-text p {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+        }
+
+        .book-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .stat-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 1.5rem;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--gold);
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-top: 0.3rem;
+        }
+
+        /* Chapters Preview */
+        .chapters-preview {
+            padding: 4rem 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .chapters-preview h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: white;
+        }
+
+        .chapter-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+        }
+
+        .chapter-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 1.25rem;
+            background: var(--card-bg);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .chapter-item:hover {
+            border-color: rgba(233, 69, 96, 0.3);
+            background: rgba(233, 69, 96, 0.05);
+        }
+
+        .chapter-num {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            min-width: 2rem;
+        }
+
+        .chapter-title {
+            font-size: 0.95rem;
+            color: var(--text);
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer-brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-text {
+            color: var(--text-light);
+            font-size: 0.85rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .support-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: rgba(245, 166, 35, 0.1);
+            border: 1px solid rgba(245, 166, 35, 0.3);
+            color: var(--gold);
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .support-btn:hover {
+            background: rgba(245, 166, 35, 0.2);
+            transform: translateY(-1px);
+        }
+
+        .copyright {
+            margin-top: 1.5rem;
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .about-text h2 {
+                font-size: 2rem;
+            }
+
+            .book-stats {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .chapter-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">SGSS Books Presents</div>
+            <h1>MrBeast</h1>
+            <p class="subtitle">The Unauthorized Biography</p>
+            <p class="tagline">The extraordinary story of Jimmy Donaldson — from a kid in North Carolina with a webcam to the most subscribed YouTuber on the planet.</p>
+            <a href="v1.0/book.html" class="hero-cta">
+                Read Online
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+            </a>
+        </div>
+        <div class="scroll-indicator">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section class="about">
+        <div class="about-grid">
+            <div class="about-text">
+                <h2>The <span>Story</span> Behind the Screen</h2>
+                <p>Jimmy Donaldson — better known to the world as MrBeast — is the most subscribed individual on YouTube, a serial entrepreneur, and one of the most influential philanthropists of the digital age.</p>
+                <p>From counting to 100,000 in a single video to planting 20 million trees, from launching a chocolate empire to creating the biggest reality show in streaming history, his journey is unlike anything the internet has ever seen.</p>
+                <p>This is the full story — the struggles, the breakthroughs, the billions, and the boy who never stopped believing that the next video could change everything.</p>
+            </div>
+            <div class="book-stats">
+                <div class="stat-card">
+                    <div class="stat-number">14</div>
+                    <div class="stat-label">Chapters</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">70+</div>
+                    <div class="stat-label">Pages</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Famous Quotes</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">509M</div>
+                    <div class="stat-label">Subscribers</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chapter Preview -->
+    <section class="chapters-preview">
+        <h2>What's Inside</h2>
+        <div class="chapter-list">
+            <div class="chapter-item">
+                <span class="chapter-num">01</span>
+                <span class="chapter-title">Who Is MrBeast?</span>
+            </div>
+            <div class="chapter-item">
+                <span class="chapter-num">02</span>
+                <span class="chapter-title">Early Life & Childhood</span>
+            </div>
+            <div class="chapter-item">
+                <span class="chapter-num">03</span>
+                <span class="chapter-title">The YouTube Journey Begins</span>
+            </div>
+            <div class="chapter-item">
+                <span class="chapter-num">04</span>
+                <span class="chapter-title">The Breakthrough</span>
+            </div>
+            <div class="chapter-item">
+                <span class="chapter-num">05</span>
+                <span class="chapter-title">Content Evolution</span>
+            </div>
+            <div class="chapter-item">
+                <span class="chapter-num">06</span>
+                <span class="chapter-title">Building the Team</span>
+            </div>
+            <div class="chapter-item">
+                <span class="chapter-num">07</span>
+                <span class="chapter-title">Beast Philanthropy</span>
+            </div>
+            <div class="chapter-item">
+                <span class="chapter-num">08</span>
+                <span class="chapter-title">The Business Empire</span>
+            </div>
+            <div class="chapter-item">
+                <span class="chapter-num">09</span>
+                <span class="chapter-title">Record-Breaking Feats</span>
+            </div>
+            <div class="chapter-item">
+                <span class="chapter-num">10</span>
+                <span class="chapter-title">Impact on YouTube</span>
+            </div>
+            <div class="chapter-item">
+                <span class="chapter-num">11</span>
+                <span class="chapter-title">Controversies & Challenges</span>
+            </div>
+            <div class="chapter-item">
+                <span class="chapter-num">12</span>
+                <span class="chapter-title">The Person Behind the Brand</span>
+            </div>
+            <div class="chapter-item">
+                <span class="chapter-num">13</span>
+                <span class="chapter-title">Famous Quotes</span>
+            </div>
+            <div class="chapter-item">
+                <span class="chapter-num">14</span>
+                <span class="chapter-title">Legacy & Future</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-brand">SGSS Books</div>
+        <p class="footer-text">Independent publishing for the digital age.</p>
+        <a href="https://walusimbi-leon1.github.io/voice-support/" target="_blank" class="support-btn">
+            ☕ Support Us
+        </a>
+        <p class="copyright">&copy; 2026 SGSS Books. All rights reserved. This is an unauthorized biography and is not affiliated with or endorsed by Jimmy Donaldson or Beast Industries.</p>
+    </footer>
+
+</body>
+</html>
