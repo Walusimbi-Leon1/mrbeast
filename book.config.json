@@ -1,0 +1,17 @@
+{
+  "title": "MrBeast",
+  "subtitle": "The Unauthorized Biography",
+  "genre": "Biography",
+  "author": "Walusimbi Leon (SGSS)",
+  "description": "The unauthorized biography of Jimmy Donaldson — MrBeast — the story of how a shy kid from North Carolina became YouTube's biggest creator.",
+  "style": "Energetic, engaging, journalistic prose. Factual, with vivid storytelling.",
+  "characters": "Jimmy Donaldson (MrBeast), his family, and his crew.",
+  "setting": "Greenville, North Carolina, and the internet.",
+  "notes": "Continue the biography in order: his early videos, the obsession with virality, the giveaways, the empire (Beast Philanthropy, Feastables), and the controversies. Keep it factual and compelling.",
+  "chapterTitle": "Chapter",
+  "mdFiles": ["v1.0/book.html"],
+  "htmlFiles": [],
+  "indexInject": null,
+  "mdHeadingLevel": 2,
+  "targetWords": 2000
+}
